@@ -4,6 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+		<PackageId>Organizarty.Domain</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Lucas Santos</Authors>
+    <Description>All shared domain classes for Organizarty</Description>
+    <RepositoryUrl> https://github.com/Star-End-Systems/Organizarty.Domain </RepositoryUrl>
   </PropertyGroup>
-
 </Project>
