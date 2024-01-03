@@ -1,6 +1,7 @@
 namespace Organizarty.Domain.Exceptions;
 
 public record ValidationError(string Field, string Message);
+public record ValidationFieldWithErrors(string Field, IEnumerable<string> Errors);
 
 public class ValidationFailException : Exception
 {
@@ -17,4 +18,11 @@ public class ValidationFailException : Exception
         var erros = string.Join("\n", Errors);
         return $"{Message}\n-----------\n{erros}";
     }
+
+    public List<ValidationFieldWithErrors> ListErrorList()
+      => Errors
+              .GroupBy(x => x.Field)
+              .Select(x => new ValidationFieldWithErrors(x.Key, x.Select(y => y.Message)))
+              .ToList();
+
 }
